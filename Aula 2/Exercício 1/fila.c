@@ -85,6 +85,20 @@ int RemoverInicio(Fila *fila)
     return v;
 }
 
+void libera(No *fila)
+{
+ if(fila->proximo != NULL){
+    No *proxNo,*atual;
+
+  atual = fila->proximo;
+  while(atual != NULL){
+   proxNo = atual->proximo;
+   free(atual);
+   atual = proxNo;
+  }
+ }
+}
+
 void main()
 {
     Fila *fila = criaFila();

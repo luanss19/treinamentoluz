@@ -47,6 +47,17 @@ void imprimirPilha(Pilha *pilha)
     printf("\n\n");
 }
 
+void liberaPilha(No * * pilha){
+  No * aux = * pilha; 
+  No * temp;          
+  while (aux){            
+    temp = aux;           
+    aux = aux -> proximo;    
+    free(temp);           
+  }
+  * pilha = NULL;         
+}
+
 void InserirFim(Pilha *pilha, int valor){
     No *aux = criaNo(valor);
 
