@@ -87,16 +87,18 @@ int RemoverInicio(Fila *fila)
 
 void libera(No *fila)
 {
- if(fila->proximo != NULL){
-    No *proxNo,*atual;
+    if (fila->proximo != NULL)
+    {
+        No *proxNo, *atual;
 
-  atual = fila->proximo;
-  while(atual != NULL){
-   proxNo = atual->proximo;
-   free(atual);
-   atual = proxNo;
-  }
- }
+        atual = fila->proximo;
+        while (atual != NULL)
+        {
+            proxNo = atual->proximo;
+            free(atual);
+            atual = proxNo;
+        }
+    }
 }
 
 void main()
@@ -119,15 +121,10 @@ void main()
 
     imprimirFila(fila);
 
-    RemoverInicio(fila);
+    for (i = fila->tam; i > 0; i--)
+    {
+        RemoverInicio(fila);
 
-    imprimirFila(fila);
-
-    RemoverInicio(fila);
-
-    imprimirFila(fila);
-
-    RemoverInicio(fila);
-
-    imprimirFila(fila);
+        imprimirFila(fila);
+    }
 }

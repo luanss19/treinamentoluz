@@ -51,6 +51,7 @@ void inserirEsquerda(No *raiz, int valor)
             inserirDireita(raiz->esq, valor);
     }
 }
+// todo aumentar tamanho - mudar nome raiz por no
 
 void inserirDireita(No *raiz, int valor)
 {
