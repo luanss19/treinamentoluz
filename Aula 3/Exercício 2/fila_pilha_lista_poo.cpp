@@ -10,16 +10,25 @@ private:
 public:
   No(){};
 
-  No(int valor)
+  No(int novo)
   {
+    anterior = NULL;
     proximo = NULL;
-    valor = valor;
+    valor = novo;
   };
+
+  ~No(){
+    delete(anterior);
+    delete(proximo);
+  };
+
+
   // getters
   int getValor()
   {
     return valor;
   }
+
   No *getProximo()
   {
     return proximo;
@@ -48,15 +57,6 @@ public:
     if (NovoAnterior != NULL)
       anterior = NovoAnterior;
   }
-
-  No *criaNo(int valor)
-  {
-    No *novoNo = new No(valor);
-    novoNo->setValor(valor);
-    novoNo->setProximo(NULL);
-    novoNo->setAnterior(NULL);
-    return novoNo;
-  }
 };
 
 class Lista
@@ -64,15 +64,19 @@ class Lista
 
 private:
   int tam;
-  No *inicio, *fim, *topo;
+  No *inicio, *fim;
 
 public:
   Lista()
   {
     inicio = NULL;
     fim = NULL;
-    topo = NULL;
     tam = 0;
+  };
+
+  ~Lista(){
+    delete(inicio);
+    delete(fim);
   };
 
   // getters
@@ -90,19 +94,7 @@ public:
   {
     return fim;
   }
-
-  No *getTopo()
-  {
-    return topo;
-  }
-
   // setters
-
-  void setTopo(No *NovoTopo)
-  {
-    if (NovoTopo != NULL)
-      topo = NovoTopo;
-  }
 
   void setTamanho(int tamanho)
   {
@@ -124,102 +116,85 @@ public:
 
   // funções
 
-  Lista *criaLista()
+  void inserirInicio(int valor)
   {
-    Lista *novaLista = new Lista();
-    novaLista->setInicio(NULL);
-    novaLista->setFim(NULL);
-    novaLista->setTamanho(0);
-    return novaLista;
-  }
-
-  void inserirInicio(Lista *lista, int valor)
-  {
-    No *novo;
-    novo = novo->criaNo(valor);
-    if (lista->inicio == NULL)
-    { // vê se a lista tá vazia
-      lista->inicio = novo;
-      lista->fim = novo;
+    No *novo = new No(valor);
+    if (this->inicio == NULL)
+    {
+      this->inicio = novo;
+      this->fim = novo;
     }
     else
     {
-      No *aux;
-      aux = aux->criaNo(lista->getInicio()->getValor());
-      aux = lista->getInicio();
+      No *aux = new No(this->getInicio()->getValor());
+      aux = this->getInicio();
       novo->setProximo(aux);
       aux->setAnterior(novo);
-      lista->setInicio(novo);
+      this->setInicio(novo);
     }
     // aumenta o tamanho da lista
-    lista->tam++;
+    this->tam++;
   }
 
-  void InserirFim(Lista *lista, int valor)
+  void InserirFim(int valor)
   {
-    // crira novo nó alocando o espaço no heap com o malloc, do tamanho de um nó
-    No *novo;
-    novo = novo->criaNo(valor);
-    if (lista->inicio == NULL)
-    { // vê se a lista tá vazia
-      lista->inicio = novo;
-      lista->fim = novo;
+    No *novo = new No(valor);
+    if (this->inicio == NULL)
+    {
+      this->inicio = novo;
+      this->fim = novo;
     }
     else
     {
-      No *aux;
-      aux = aux->criaNo(lista->fim->getValor());
-      aux = lista->fim;
+      No *aux = new No(this->getFim()->getValor());
+      aux = this->getFim();
       novo->setAnterior(aux);
       aux->setProximo(novo);
-      lista->setFim(novo);
+      this->setFim(novo);
     }
     // aumenta o tamanho da lista
-    lista->tam++;
+    this->setTamanho(this->getTamanho() + 1);
   }
 
-  void removerElemento(Lista *lista, int pos)
+  void removerElemento(int pos)
   {
     int i;
-    No *aux, *aux2;
-    aux = aux->criaNo(0);
-    aux2 = aux->criaNo(0);
+    No *aux, *aux2 = new No(0);
 
-    if (lista->tam == 0)
+    if (this->tam == 0)
       return;
 
     if (pos == 1)
     { // se for o primeiro elemento
-      aux = lista->getInicio();
-      lista->setInicio(lista->inicio->getProximo());
-      if (lista->inicio == NULL)
-        lista->fim = NULL;
+      aux = this->getInicio();
+      this->setInicio(this->inicio->getProximo());
+      if (this->inicio == NULL)
+        this->fim = NULL;
       else
-        lista->inicio->setAnterior(NULL);
+        this->inicio->setAnterior(NULL);
     }
-    else if (pos == lista->tam)
+    else if (pos == this->tam)
     { // se for o último elemento
-      aux = lista->fim;
-      lista->fim->getAnterior()->setProximo(NULL);
-      lista->fim = lista->fim->getAnterior();
+      aux = this->fim;
+      this->fim->getAnterior()->setProximo(NULL);
+      this->fim = this->fim->getAnterior();
     }
     else
     { // se for em outro lugar da lista
-      aux2 = lista->inicio;
+      aux2 = this->inicio;
       for (i = 1; i < pos; ++i)
         aux2 = aux2->getProximo();
       aux = aux2;
       aux2->getAnterior()->setProximo(aux2->getProximo());
       aux2->getProximo()->setAnterior(aux2->getAnterior());
     }
-    free(aux);
-    lista->tam--;
+    this->tam--;
   }
 
-  void imprimir(Lista *lista)
+  void imprimir()
   {
-    No *inicio = lista->inicio;
-    cout << "\nTamanho da lista: " << lista->tam << "\n";
+    No *inicio = this->getInicio();
+    cout << "\nTamanho da estrutura: " << this->getTamanho() << "\n";
     while (inicio != NULL)
     {
       printf("%d ", inicio->getValor());
@@ -227,235 +202,202 @@ public:
     }
     printf("\n\n");
   }
+
+  void RetirarFim()
+  {
+    No *aux = new No(this->getFim()->getValor());
+    if (this->getInicio() == NULL)
+    {
+      printf("Estrutura vazia\n");
+    }
+    aux = this->getInicio();
+    this->setInicio(aux->getProximo());
+    this->setTamanho(this->getTamanho() - 1);
+  }
+
+  int RemoverInicio()
+  {
+    No *aux = new No(this->getInicio()->getValor());
+    int v;
+    if (this->getInicio() == NULL)
+    {
+      printf("Vazio \n");
+      return 0;
+    }
+
+    aux = this->getInicio();
+    v = aux->getValor();
+    this->setInicio(aux->getProximo()); // inicio da fila recebe o segundo elemento
+
+    if (this->getInicio() == NULL)
+    {
+      this->setFim(NULL);
+    }
+    this->setTamanho(this->getTamanho() - 1);
+    return v;
+  }
 };
 
-class Pilha : public Lista
+class Pilha
 {
 private:
-  int tam;
-  No *topo;
+  Lista *lista;
 
 public:
   Pilha()
   {
-    topo = NULL;
-    tam = 0;
+    lista = new Lista();
+  };
+
+  ~Pilha(){
+     delete(lista);
   };
 
   // funções
 
-  Pilha *criaPilha()
+  void imprimir()
   {
-    Pilha *novaPilha = new Pilha();
-    novaPilha->setTopo(NULL);
-    novaPilha->setTamanho(0);
-    return novaPilha;
+    this->lista->imprimir();
   }
 
-  void imprimir(Pilha *pilha)
+  void InserirFim(int valor)
   {
-    No *inicio = pilha->getTopo();
-    cout << "\nTamanho da pilha: " << pilha->getTamanho() << "\n";
-    while (inicio != NULL)
-    {
-      printf("%d \n", inicio->getValor());
-      inicio = inicio->getProximo();
-    }
-    printf("\n\n");
+    this->lista->inserirInicio(valor);
   }
 
-  void InserirFim(Pilha *pilha, int valor)
+  int RetirarFim()
   {
-    No *aux;
-    aux = aux->criaNo(valor);
-    aux->setProximo(pilha->getTopo());
-    pilha->setTopo(aux);
-    pilha->setTamanho(pilha->getTamanho() + 1);
-  }
-
-  int RetirarFim(Pilha *pilha)
-  {
-    No *aux;
-    aux = aux->criaNo(pilha->getTopo()->getValor());
-    int v;
-
-    if (pilha->getTopo() == NULL)
-    {
-      printf("Lista vazia\n");
-      return 0;
-    }
-    aux = pilha->getTopo();
-    pilha->setTopo(aux->getProximo());
-    v = aux->getValor();
-    pilha->setTamanho(pilha->getTamanho() - 1);
-    // free(aux);
-    return v;
+    this->lista->RetirarFim();
   }
 };
 
 class Fila : public Lista
 {
 private:
-  int tam;
-  No *inicio, *fim;
+  Lista *lista;
 
 public:
   Fila()
   {
-    inicio = NULL;
-    fim = NULL;
-    tam = 0;
+    lista = new Lista();
   };
 
-  Fila *criaFila()
+  ~Fila(){
+     delete(lista);
+  };
+
+  void InserirFim(int valor)
   {
-    Fila *novaFila = new Fila();
-    novaFila->setInicio(NULL);
-    novaFila->setFim(NULL);
-    novaFila->setTamanho(0);
-    return novaFila;
+    this->lista->InserirFim(valor);
+    this->setTamanho(lista->getTamanho());
+    this->setInicio(lista->getInicio());
+    this->setFim(lista->getFim());
   }
 
-  void InserirFim(Fila *fila, int valor)
+  int RemoverInicio()
   {
-    No *aux;
-    aux = aux->criaNo(valor);
-
-    if (fila->getFim() != NULL) // fila não está vazia
-    {
-      fila->getFim()->setProximo(aux);
-    }
-    else // fila vazia
-    {
-      fila->setInicio(aux);
-    }
-
-    fila->setFim(aux);
-    fila->setTamanho(fila->getTamanho() + 1);
-  }
-
-  int RemoverInicio(Fila *fila)
-  {
-    No *aux;
-    aux = aux->criaNo(fila->inicio->getValor());
-    int v;
-    if (fila->inicio == NULL)
-    {
-      printf("Fila vazia\n");
-      return 0;
-    }
-
-    aux = fila->inicio;
-    v = aux->getValor();
-    fila->inicio = aux->getProximo(); // inicio da fila recebe o segundo elemento
-
-    if (fila->inicio == NULL)
-    {
-      fila->fim = NULL;
-    }
-    fila->tam--;
-
-    // free(aux);
+    int v = this->lista->RemoverInicio();
+    this->setTamanho(lista->getTamanho());
+    this->setInicio(lista->getInicio());
+    this->setFim(lista->getFim());
     return v;
   }
 
-  void imprimir(Fila *fila)
+  void imprimir()
   {
-    No *inicio = fila->getInicio();
-    cout << "\nTamanho da fila: " << fila->getTamanho() << "\n";
-    while (inicio != NULL)
-    {
-      printf("%d ", inicio->getValor());
-      inicio = inicio->getProximo();
-    }
-    printf("\n\n");
+    this->lista->imprimir();
   }
 };
 
 void TesteLista()
 {
-  Lista *lista = lista->criaLista();
+  Lista *lista = new Lista();
   int size, i;
   cout << "Digite o tamanho da lista:";
   scanf("%d", &size);
   for (i = 0; i < size; i++)
-    lista->inserirInicio(lista, rand() % size);
+    lista->inserirInicio(rand() % size);
 
-  lista->imprimir(lista);
+  lista->imprimir();
 
-  lista->inserirInicio(lista, 55);
+  lista->inserirInicio(55);
   printf("Inserido no inicio: 55 \n");
 
-  lista->imprimir(lista);
+  lista->imprimir();
 
-  lista->InserirFim(lista, 66);
+  lista->InserirFim(66);
   printf("Inserido no fim: 66 \n");
 
-  lista->imprimir(lista);
+  lista->imprimir();
 
-  lista->removerElemento(lista, 1);
+  lista->removerElemento(1);
   printf("Lista com o primeiro elemento removido: \n");
 
-  lista->imprimir(lista);
+  lista->imprimir();
 
   printf("Lista com o quarto elemento removido: \n");
 
-  lista->removerElemento(lista, 4);
+  lista->removerElemento(4);
 
-  lista->imprimir(lista);
+  lista->imprimir();
+
+ // delete(lista);
 };
 
 void TestePilha()
 {
-  Pilha *pilha = pilha->criaPilha();
+  Pilha *pilha = new Pilha();
 
   int size, i;
   printf("Digite o tamanho da pilha: ");
   scanf("%d", &size);
   for (i = 0; i < size; i++)
-    pilha->InserirFim(pilha, rand() % size);
+    pilha->InserirFim(rand() % size);
 
-  pilha->imprimir(pilha);
+  pilha->imprimir();
   printf("Inserido no topo: 99 \n");
-  pilha->InserirFim(pilha, 99);
+  pilha->InserirFim(99);
 
-  pilha->imprimir(pilha);
+  pilha->imprimir();
 
   printf("Retirado do topo: 99 \n");
-  pilha->RetirarFim(pilha);
+  pilha->RetirarFim();
 
-  pilha->imprimir(pilha);
+  pilha->imprimir();
+
+ // delete(pilha);
+
 }
 
 void TesteFila()
 {
-  Fila *fila = fila->criaFila();
+  Fila *fila = new Fila();
 
   int size, i;
   printf("Digite o tamanho da fila: ");
   scanf("%d", &size);
   for (i = 0; i < size; i++)
-    fila->InserirFim(fila, rand() % size);
+    fila->InserirFim(rand() % size);
 
-  fila->imprimir(fila);
+  fila->imprimir();
 
-  fila->InserirFim(fila, 55);
+  fila->InserirFim(55);
   printf("Inserido no fim: 55");
 
-  fila->imprimir(fila);
+  fila->imprimir();
 
-  fila->InserirFim(fila, 66);
+  fila->InserirFim(66);
   printf("Inserido no fim: 66");
 
-  fila->imprimir(fila);
+  fila->imprimir();
 
-  for (i = fila->getTamanho(); i > 0; i--)
+  for (i = fila->getTamanho(); i > 1; i--)
   {
-    printf("Retirado o elemento %d do inicio", fila->getInicio()->getValor());
-    fila->RemoverInicio(fila);
-
-    fila->imprimir(fila);
+    printf("Retirado o elemento %d do inicio", fila->RemoverInicio());
+    fila->imprimir();
   }
+
+  //delete(fila);
 }
 
 int main()
