@@ -18,8 +18,6 @@ public:
   };
 
   ~No(){
-    delete(anterior);
-    delete(proximo);
   };
 
 
@@ -75,8 +73,17 @@ public:
   };
 
   ~Lista(){
-    delete(inicio);
-    delete(fim);
+      while (this->getInicio() != NULL)
+      {
+        No *aux = this->getInicio();
+        this->setInicio(this->getInicio()->getProximo());
+        if(this->getInicio() == this->getFim()){
+          this->setFim(NULL);
+        }
+        this->setTamanho(this->getTamanho()-1);
+        delete aux;
+      }
+      
   };
 
   // getters
@@ -250,7 +257,7 @@ public:
   };
 
   ~Pilha(){
-     delete(lista);
+     delete this->lista;
   };
 
   // funções
@@ -283,7 +290,7 @@ public:
   };
 
   ~Fila(){
-     delete(lista);
+     delete this->lista;
   };
 
   void InserirFim(int valor)
