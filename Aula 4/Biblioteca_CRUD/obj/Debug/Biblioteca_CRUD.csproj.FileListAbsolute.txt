@@ -1,0 +1,65 @@
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\bin\Debug\Biblioteca_CRUD.exe.config
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\bin\Debug\Biblioteca_CRUD.exe
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\bin\Debug\Biblioteca_CRUD.pdb
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.AssemblyReference.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.SuggestedBindingRedirects.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\MainWindow.g.cs
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\App.g.cs
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD_MarkupCompile.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD_MarkupCompile.lref
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\MainWindow.baml
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.g.resources
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.Properties.Resources.resources
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.GenerateResource.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.CoreCompileInputs.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.exe
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.pdb
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\CadastroEdicaoLivro.g.cs
+C:\Users\luans\Treinamento Dev\Aula 4\Código-Fonte WPF\Biblioteca_CRUD\Biblioteca_CRUD\obj\Debug\CadastroEdicaoLivro.baml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Biblioteca_CRUD.exe.config
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Biblioteca_CRUD.exe
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Biblioteca_CRUD.pdb
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.AssemblyReference.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.SuggestedBindingRedirects.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\App.g.cs
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD_MarkupCompile.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD_MarkupCompile.lref
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.g.resources
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.Properties.Resources.resources
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.GenerateResource.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.CoreCompileInputs.cache
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.exe
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.pdb
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\CadastroEdicaoLivro.g.cs
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\MainWindow.g.cs
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\CadastroEdicaoLivro.baml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\MainWindow.baml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Npgsql.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Buffers.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Collections.Immutable.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Memory.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Text.Json.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Threading.Channels.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.ValueTuple.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\Npgsql.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Buffers.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Collections.Immutable.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Memory.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Text.Json.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Threading.Channels.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.ValueTuple.xml
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.CopyComplete
