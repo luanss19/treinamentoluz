@@ -63,3 +63,5 @@ C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Threading
 C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\System.ValueTuple.xml
 C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\obj\Debug\Biblioteca_CRUD.csproj.CopyComplete
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\MySqlConnector.dll
+C:\Users\luans\Treinamento Dev\Aula 4\Biblioteca_CRUD\bin\Debug\MySqlConnector.xml

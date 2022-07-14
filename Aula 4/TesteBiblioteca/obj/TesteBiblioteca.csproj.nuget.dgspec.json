@@ -1,0 +1,107 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\TesteBiblioteca\\TesteBiblioteca.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\Biblioteca_CRUD\\Biblioteca_CRUD.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\Biblioteca_CRUD\\Biblioteca_CRUD.csproj",
+        "projectName": "Biblioteca_CRUD",
+        "projectPath": "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\Biblioteca_CRUD\\Biblioteca_CRUD.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\TesteBiblioteca\\TesteBiblioteca.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\TesteBiblioteca\\TesteBiblioteca.csproj",
+        "projectName": "TesteBiblioteca",
+        "projectPath": "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\TesteBiblioteca\\TesteBiblioteca.csproj",
+        "packagesPath": "C:\\Users\\luans\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\TesteBiblioteca\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\Biblioteca_CRUD\\Biblioteca_CRUD.csproj": {
+                "projectPath": "C:\\Users\\luans\\Treinamento Dev\\Aula 4\\Biblioteca_CRUD\\Biblioteca_CRUD.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.1, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
