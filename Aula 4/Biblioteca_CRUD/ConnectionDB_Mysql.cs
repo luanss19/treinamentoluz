@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace Biblioteca_CRUD
 {
-    internal class ConnectionDB_Mysql : IDatabase
+    public class ConnectionDB_Mysql : IDatabase
     {
-        private static string connectionString = "Server=localhost;Port=33061;UID=root;Password=4312;Database=db_biblioteca_mysql";
+        //private static string connectionString = "Server=localhost;Port=33061;UID=root;Password=4312;Database=db_biblioteca_mysql";
 
-        private static MySqlConnection connection;
+        private MySqlConnection connection;
         private static DataTable dataTable;
         private static List<Livro> ListaLivrosTemporaria;
 
         DatabaseType IDatabase.DatabaseType => DatabaseType.MySQL;
 
-        public ConnectionDB_Mysql()
+        public ConnectionDB_Mysql(MySqlConnection connection)
         {
             dataTable = new DataTable();
             ListaLivrosTemporaria = new List<Livro>();
-            connection = new MySqlConnection(connectionString);
+            this.connection = connection;
         }
 
         public MySqlConnection GetDBConnection()
@@ -40,95 +41,162 @@ namespace Biblioteca_CRUD
                 connection.Close();
             }
         }
-        public void ExecuteQuery(string MYSQLQuery)
+        public int ExecuteQuery(string MYSQLQuery)
         {
-            MySqlCommand cmd_Command = new MySqlCommand(MYSQLQuery, GetDBConnection());
-            try
+            if (MYSQLQuery != "" & MYSQLQuery != null)
             {
-                cmd_Command.ExecuteNonQuery();
+                MySqlCommand cmd_Command = new MySqlCommand(MYSQLQuery, GetDBConnection());
+                try
+                {
+                    return cmd_Command.ExecuteNonQuery();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+                finally
+                {
+                    CloseDBConnection();
+                }
             }
-            catch (Exception e)
+            else throw new ArgumentNullException("Agrumento inválido");
+
+        }
+
+        public int ExecuteScalar(string MYSQLQuery)
+        {
+            if (MYSQLQuery != "" & MYSQLQuery != null)
             {
-                Console.WriteLine(e.Message);
-                throw;
+                MySqlCommand cmd_Command = new MySqlCommand(MYSQLQuery, GetDBConnection());
+                try
+                {
+                    return (int)cmd_Command.ExecuteScalar();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+                finally
+                {
+                    CloseDBConnection();
+                }
             }
+            else throw new ArgumentNullException("Agrumento inválido");
+
         }
 
         public List<Livro> GetTable(string MYSQL_Text)
         {
-            MySqlConnection cn_connection = GetDBConnection();
 
-
-            using (MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM " + MYSQL_Text, cn_connection))
+            if (MYSQL_Text != "" & MYSQL_Text != null)
             {
-                adapter.Fill(dataTable);
+                MySqlConnection cn_connection = GetDBConnection();
+
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM " + MYSQL_Text, cn_connection))
+                {
+                    adapter.Fill(dataTable);
+                    try
+                    {
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            Livro livro = new Livro()
+                            {
+                                Id = (int)row["column_book_id"],
+                                Name = (string)row["column_name"],
+                                Author = (string)row["column_author"],
+                                Pages = (int)row["column_pages"]
+                            };
+                            ListaLivrosTemporaria.Add(livro);
+                        }
+                    }
+                    finally
+                    {
+                        dataTable.Dispose();
+                        CloseDBConnection();
+                    }
+                }
+
+
+                return ListaLivrosTemporaria;
+            }
+            else throw new ArgumentNullException("Agrumento inválido");
+        }
+
+        public int Insert(string Name, string Author, int Pages, string table)
+        {
+            if (Name != "" & Name != null & Author != "" & Author != null & table != "" & table != null)
+            {
+                MySqlCommand cmd_Command = new MySqlCommand("call proc_insert ('" + Name + "', '" + Author + "'," + Pages + ") ", GetDBConnection());
+
                 try
                 {
-                    foreach (DataRow row in dataTable.Rows)
-                    {
-                        Livro livro = new Livro()
-                        {
-                            Id = (int)row["column_book_id"],
-                            Name = (string)row["column_name"],
-                            Author = (string)row["column_author"],
-                            Pages = (int)row["column_pages"]
-                        };
-                        ListaLivrosTemporaria.Add(livro);
-                    }
+                    return cmd_Command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
                 }
                 finally
                 {
-                    dataTable.Dispose();
                     CloseDBConnection();
+
                 }
             }
-
-
-            return ListaLivrosTemporaria;
-        }
-
-        public void Insert(string Name, string Author, int Pages, string table)
-        {
-            MySqlCommand cmd_Command = new MySqlCommand("call proc_insert ('" + Name + "', '" + Author + "'," + Pages + ") ", GetDBConnection());
-
-            try
-            {
-                cmd_Command.ExecuteReader();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            CloseDBConnection();
+            else throw new ArgumentNullException("Agrumento inválido");
         }
         public void Delete(int id, string table)
         {
-            MySqlCommand cmd_Command = new MySqlCommand("call proc_delete (" + id + ") ", GetDBConnection());
+            if (table != "" & table != null)
+            {
+                MySqlCommand cmd_Command = new MySqlCommand("call proc_delete (" + id + ") ", GetDBConnection());
 
-            try
-            {
-                cmd_Command.ExecuteReader();
+                try
+                {
+                    cmd_Command.ExecuteReader();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw ex;
+                }
+                finally
+                {
+                    CloseDBConnection();
+
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            
-            CloseDBConnection();
+            else throw new ArgumentNullException("Agrumento inválido");
         }
-        public void Update(string Name, string Author, int Pages, int Id, string table)
+        public int Update(string Name, string Author, int Pages, int Id, string table)
         {
-            MySqlCommand cmd_Command = new MySqlCommand("call proc_update ('" + Name + "', '" + Author + "'," + Pages + ", " + Id + ") ", GetDBConnection());
 
-            try
+            if (Name != "" & Name != null & Author != "" & Author != null & table != "" & table != null)
             {
-                cmd_Command.ExecuteNonQuery();
+                MySqlCommand cmd_Command = new MySqlCommand("call proc_update ('" + Name + "', '" + Author + "'," + Pages + ", " + Id + ") ", GetDBConnection());
+
+                try
+                {
+                    return cmd_Command.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw ex;
+                }
+                finally
+                {
+                    CloseDBConnection();
+
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            CloseDBConnection();
+            else throw new ArgumentNullException("Agrumento inválido");
+
         }
     }
 }

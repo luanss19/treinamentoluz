@@ -42,7 +42,7 @@ namespace Biblioteca_CRUD
             {
                 DBFactory = new DatabseFactory();
                 //database = new DBInjecaoDependencia(DBFactory.getDatabase(DatabaseType.Postgres), "Server=localhost;Port=54320;User id=postgres;Password=4312;Database=db_biblioteca_postgres");
-                database = DBFactory.getDatabase(DatabaseType.Postgres);
+                database = DBFactory.getDatabase(DatabaseType.Postgres, @"Server=localhost;Port=54320;User id=postgres;Password=4312;Database=db_biblioteca_postgres");
                 listaLivros = new ObservableCollection<Livro>(database.GetTable("tab_books"));
             }
             catch (MySqlException ex)
@@ -67,8 +67,18 @@ namespace Biblioteca_CRUD
             ICommand Command = new RelayCommand((object _) => {
                 try
                 {
+                    string connectionStr = "";
+                    switch (type)
+                    {
+                        case DatabaseType.Postgres:
+                            connectionStr = @"Server=localhost;Port=54320;User id=postgres;Password=4312;Database=db_biblioteca_postgres";
+                            break;
+                        case DatabaseType.MySQL:
+                            connectionStr = "Server=localhost;Port=33061;UID=root;Password=4312;Database=db_biblioteca_mysql";
+                            break;
+                    } 
                     listaLivros.Clear();
-                    database = DBFactory.getDatabase(type);
+                    database = DBFactory.getDatabase(type, connectionStr);
                     foreach (Livro livro in database.GetTable("tab_books"))
                     {
                         listaLivros.Add(livro);

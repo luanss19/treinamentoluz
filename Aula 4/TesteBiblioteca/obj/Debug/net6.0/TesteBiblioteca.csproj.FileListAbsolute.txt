@@ -89,14 +89,8 @@ C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\zh-Hant\M
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Biblioteca_CRUD.exe
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\MySqlConnector.dll
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Npgsql.dll
-C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Microsoft.Bcl.HashCode.dll
-C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Biblioteca_CRUD.pdb
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Biblioteca_CRUD.exe.config
-C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\MySqlConnector.xml
-C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Npgsql.xml
-C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Microsoft.Bcl.HashCode.xml
-C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\obj\Debug\net6.0\TesteBiblioteca.csproj.AssemblyReference.cache
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\obj\Debug\net6.0\TesteBiblioteca.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\luans\Treinamento Dev\Aula 4\TesteBiblioteca\obj\Debug\net6.0\TesteBiblioteca.AssemblyInfoInputs.cache

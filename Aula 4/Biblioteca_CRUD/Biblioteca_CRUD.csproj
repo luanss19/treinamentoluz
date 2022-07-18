@@ -117,6 +117,8 @@
     <Compile Include="DBInjecaoDependencia.cs" />
     <Compile Include="EnumBindingSourceExtension.cs" />
     <Compile Include="IDatabase.cs" />
+    <Compile Include="IDbConnectionFactory.cs" />
+    <Compile Include="MySqlConnectionFactory.cs" />
     <Compile Include="RelayCommand.cs" />
     <Page Include="CadastroEdicaoLivro.xaml">
       <SubType>Designer</SubType>

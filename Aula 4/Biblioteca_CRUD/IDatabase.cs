@@ -11,10 +11,11 @@ namespace Biblioteca_CRUD
     {
         DatabaseType DatabaseType { get; }
         void CloseDBConnection();
-        List<Livro> GetTable(string PSQL_Text);
-        void ExecuteQuery(string Query);
-        void Update(string Name, string Author, int Pages, int Id, string table);
-        void Insert(string Name, string Author, int Pages, string table);
+        List<Livro> GetTable(string TableName);
+        int ExecuteQuery(string Query);
+        int Update(string Name, string Author, int Pages, int Id, string table);
+        int Insert(string Name, string Author, int Pages, string table);
         void Delete(int id, string table);
+        int ExecuteScalar(string Query);
     }
 }

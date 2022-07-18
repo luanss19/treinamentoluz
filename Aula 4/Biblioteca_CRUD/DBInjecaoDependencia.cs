@@ -58,10 +58,11 @@ namespace Biblioteca_CRUD
 
 
 
-        public void ExecuteQuery(string Query)
+        public int ExecuteQuery(string Query)
         {
             DbCommand cmd_Command = new MySqlCommand(Query, (MySqlConnection)connection);
-            cmd_Command.ExecuteNonQuery();
+            return cmd_Command.ExecuteNonQuery();
+
         }
 
         public List<Livro> GetTable(string Table)
@@ -124,7 +125,11 @@ namespace Biblioteca_CRUD
 
         }
 
-        public void Insert(string Name, string Author, int Pages, string table)
+        public int ExecuteScalar(string MYSQLQuery)
+        {
+            return 1;
+        }
+        public int Insert(string Name, string Author, int Pages, string table)
         {
             switch (database.DatabaseType)
             {
@@ -133,13 +138,17 @@ namespace Biblioteca_CRUD
 
                     try
                     {
-                        cmd_Command.ExecuteReader();
+                        return cmd_Command.ExecuteNonQuery();
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine(e.Message);
                     }
-                    CloseDBConnection();
+                    finally
+                    {
+                        CloseDBConnection();
+
+                    }
                     break;
 
                 case DatabaseType.Postgres:
@@ -147,15 +156,20 @@ namespace Biblioteca_CRUD
 
                     try
                     {
-                        cmd_CommandPG.ExecuteNonQuery();
+                        return cmd_CommandPG.ExecuteNonQuery();
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine(e.Message);
                     }
-                    CloseDBConnection();
+                    finally
+                    {
+                        CloseDBConnection();
+
+                    }
                     break;
             }
+            return -1;
         }
         public void Delete(int id, string table)
         {
@@ -191,14 +205,14 @@ namespace Biblioteca_CRUD
             }
             
         }
-        public void Update(string Name, string Author, int Pages, int Id, string table)
+        public int Update(string Name, string Author, int Pages, int Id, string table)
         {
             switch (database.DatabaseType)
             {
                 case DatabaseType.MySQL:
                     MySqlCommand cmd_Command = new MySqlCommand("call proc_update ('" + Name + "', '" + Author + "'," + Pages + ", " + Id + ") ", (MySqlConnection)GetDBConnection());
 
-                    cmd_Command.ExecuteNonQuery();
+                    return cmd_Command.ExecuteNonQuery();
                     CloseDBConnection();
                     break;
 
@@ -207,7 +221,7 @@ namespace Biblioteca_CRUD
 
                     try
                     {
-                        cmd_CommandPG.ExecuteNonQuery();
+                        return cmd_CommandPG.ExecuteNonQuery();
                     }
                     catch (Exception e)
                     {
@@ -216,7 +230,8 @@ namespace Biblioteca_CRUD
                     CloseDBConnection();
                     break;
             }
-            
+            return -1;
+
         }
     }
 }
